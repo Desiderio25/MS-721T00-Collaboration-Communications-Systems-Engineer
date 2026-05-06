@@ -1,8 +1,14 @@
 ---
 lab:
-    title: 'Lab 05: Manage Microsoft Teams Devices'
-    type: 'Answer Key'
-    module: 'Learning Path 02: Manage Teams collaboration communications systems'
+  title: 'Lab 05: Manage Microsoft Teams Devices'
+  type: Answer Key
+  module: 'Learning Path 02: Manage Teams collaboration communications systems'
+  description: In this lab, you will configure, deploy, and manage Microsoft Teams devices, including shared devices, Teams Rooms, and Surface Hub. The scenario covers account setup, licensing, device policies, and remote management for Teams-enabled hardware.
+  duration: 120 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Microsoft Teams
 ---
 
 > **Abstract:**  
@@ -302,6 +308,7 @@ In this task, you will sign into Microsoft Exchange PowerShell and configure the
     Install-Module ExchangeOnlineManagement
 
     ```
+    > NOTE: If the Install-Module ExchangeOnlineManagement command fails, an older version of the module may already be installed. Close PowerShell, open a new Administrator‑elevated window, and run the command: Uninstall-Module -Name ExchangeOnlineManagement -AllVersions -Force . Then run the installation command again.
 
 1. In Windows PowerShell, enter the following cmdlet to connect to Exchange Online Management:
 
@@ -328,7 +335,7 @@ In this task, you will sign into the a virtual Surface Hub 3 running Teams Rooms
 
     ![A screenshot showing the Teams Rooms welcome screen.](Linked_Image_Files/M05_L05_E03_T02_01.png)
 
-    > NOTE: If you see an error stating that there is not an active internet connection, reset the virtual machine to restart the application. It likely booted before the RRAS box had fully started.
+    > NOTE: If you see an error stating that there is not an active internet connection, reset the virtual machine to restart the application. It likely booted before the RRAS box had fully started. If the Surface Hub 3 still cannot sign in using the `CONF_Room1` resource account, complete an initial sign‑in with this account on **MS721‑CLIENT01** using the Teams desktop app or https://teams.microsoft.com. This first sign‑in finalizes any password updates and completes Teams provisioning for the account.When updating the password, use the **MOD Administrator password**. After signing in successfully on CLIENT01, return to **MS721‑SH3** and sign in on the Surface Hub again.
 
 1. On the next page click **Accept** to the **End User Agreement** and then click **Manual Setup**. Enter the following credentials:
 

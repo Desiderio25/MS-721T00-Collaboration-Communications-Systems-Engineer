@@ -1,8 +1,14 @@
 ---
 lab:
-    title: 'Lab 06: Manage Microsoft Teams Premium'
-    type: 'Answer Key'
-    module: 'Learning Path 02: Manage Teams collaboration communications systems'
+  title: 'Lab 06: Manage Microsoft Teams Premium'
+  type: Answer Key
+  module: 'Learning Path 02: Manage Teams collaboration communications systems'
+  description: This lab explores advanced Teams Premium features, including configuring the Queues app, voice application policies, and meeting customization. The scenario demonstrates how to enable, assign, and validate premium capabilities for specialized Teams experiences.
+  duration: 120 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft Teams
 ---
 
 > **Abstract:**  
@@ -83,7 +89,7 @@ You have successfully created a Teams Phone Resource Account for a Call Queue an
 
 ### Task 3 - Creating a Call Queue
 
-In this task, you will sign into the Microsoft Teams admin center and create a Auto Attendant.
+In this task, you will sign into the Microsoft Teams admin center and create a Call Queue.
 
 1. You are still signed in to MS721-CLIENT01 as “Admin” and signed into the **Microsoft Teams admin center** as **MOD Administrator**.
 
@@ -95,9 +101,13 @@ In this task, you will sign into the Microsoft Teams admin center and create a A
 
 	  - **Add a name for your call queue:** CQ_MainLine
 
+      - **Language:** English (United States)
+
+      - **Select** Classic setup
+
 	  - **Resource Accounts:** CQ_MainLine@&lt;Lab Domain&gt;.onmicrosoft.com
 
-	  - **Language:** English (United States)
+	  
 
   - **Call Answering Tab**
 
@@ -137,7 +147,7 @@ In this task, you will create a voice application policy which will give users r
   
     - **Agent Monitor Mode:** Takeover
     
-    - **Agent Monitoring:** Agent
+    - **Agent Monitor Notification Mode:** Agent
   
   - **Call Queue Reporting** Toggle All Settings to **Only Authorized Queues**
 
@@ -173,7 +183,7 @@ In this exercise, you will test the Queues app.
 
 In this task, you will sign into the Microsoft Teams client and access the Queues App.
 
-1. You are still signed in to MS721-CLIENT02 as “Admin” and signed into Microsoft Teams as **Megan Bowen**
+1. You are still signed in to MS721-CLIENT02 as “Admin” and signed into Microsoft Teams as **Isaiah Langer**
 
 1. In the Teams client, click the three dots **...** on the left side app bar and then search & select the app called **Queues.**
 
