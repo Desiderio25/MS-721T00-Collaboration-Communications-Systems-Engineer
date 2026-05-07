@@ -44,7 +44,7 @@ jobs:
             const syncedNumbers = new Set();
             for (const issue of forkIssues) {
               if (issue.body) {
-                const match = issue.body.match(/Upstream issue:.*\/issues\/(\d+)/);
+                const match = issue.body.match(/Repo:\s+[^\s]+\s+Issue:\s+#(\d+)/);
                 if (match) syncedNumbers.add(parseInt(match[1]));
               }
             }
@@ -72,12 +72,17 @@ jobs:
             for (const issue of openIssues) {
               if (syncedNumbers.has(issue.number)) continue;
 
-              const upstreamUrl = 'https://github.com/' + UPSTREAM_OWNER + '/' + UPSTREAM_REPO + '/issues/' + issue.number;
+              const upstreamUrlPlain = 'github dot com/' + UPSTREAM_OWNER + '/' + UPSTREAM_REPO + '/issues/' + issue.number;
               const createdDate = new Date(issue.created_at).toDateString();
               const issueBody = issue.body || 'No description provided.';
-              const body = '> Upstream issue: [' + UPSTREAM_OWNER + '/' + UPSTREAM_REPO + '#' + issue.number + '](' + upstreamUrl + ')\n' +
-                '> Opened by: @' + issue.user.login + '\n' +
-                '> Created: ' + createdDate + '\n\n' +
+
+              const body =
+                '**Upstream Reference** (do not convert to link)\n' +
+                '> Repo: ' + UPSTREAM_REPO + '  Issue: #' + issue.number + '\n' +
+                '> Owner: ' + UPSTREAM_OWNER + '\n' +
+                '> Opened by: ' + issue.user.login + '\n' +
+                '> Created: ' + createdDate + '\n' +
+                '> URL: ' + upstreamUrlPlain + '\n\n' +
                 '---\n\n' +
                 issueBody;
 
@@ -89,11 +94,11 @@ jobs:
                 title: title,
                 body: body,
                 labels: [SYNC_LABEL],
+                assignees: ['Desiderio25'],
               });
 
               created++;
               console.log('Created issue for upstream #' + issue.number + ': ' + issue.title);
-
               await new Promise(r => setTimeout(r, 1000));
             }
 
